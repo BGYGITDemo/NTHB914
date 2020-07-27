@@ -27,12 +27,15 @@ public class SaveObjectTest {
 	ses=factory.openSession();
 	//create entity to save with DB s/w
 	prod=new Product();
-	prod.setPid(294);prod.setPname("table");prod.setPrice(60000);prod.setQty(2);
+	prod.setPid(280);prod.setPname("bed");prod.setPrice(60000);prod.setQty(2);
 	try {
-	tx=ses.beginTransaction();//internally calls con.setAutoCommit(false) to begin the tx
-	//save object
+	   tx=ses.beginTransaction();//internally calls con.setAutoCommit(false) to begin the tx
+	
+	   //save object
 	ses.save(prod);
+	System.out.println("1");
 	flag=true;
+	
 	}
 	catch(HibernateException he) {
 		he.printStackTrace();
@@ -41,18 +44,24 @@ public class SaveObjectTest {
 	
 	finally {
 		//commit or rollback Tx
-		if(flag==true) {
-			tx.commit();//internally calls con.commit()
-			System.out.println("data saved");
-		}
-		else {
-			tx.rollback();//internally calls con.rollback();
-		
-		//close session object
+			
+			
+			  if(flag==true){
+				  System.out.println("2");
+			    tx.commit();//internally calls con.commit()
+			    System.out.println("3");
+			    System.out.println("Object saved");
+			   }
+			    else {
+			  tx.rollback();//internally calls con.rollback();
+			  System.out.println("Object is not saved");
+			   }
+			 
+					//close session object
 		ses.close();
 		//close sessionFactory
 		factory.close();
 	}//finally
  }//main
 	}
-}//class
+//class
