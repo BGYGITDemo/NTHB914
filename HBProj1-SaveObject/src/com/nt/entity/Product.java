@@ -1,3 +1,4 @@
+  
 //Entity class/Domain class/Model class/Persistance class/POJO class/HLO(Hibernate Language Object)class
 package com.nt.entity;
 
