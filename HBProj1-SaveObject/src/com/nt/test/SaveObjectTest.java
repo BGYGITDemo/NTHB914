@@ -27,7 +27,7 @@ public class SaveObjectTest {
 	ses=factory.openSession();
 	//create entity to save with DB s/w
 	prod=new Product();
-	prod.setPid(282);prod.setPname("sofa");prod.setPrice(60000);prod.setQty(2);
+	prod.setPid(242);prod.setPname("sofa");prod.setPrice(60000);prod.setQty(2);
 	try {
 	   tx=ses.beginTransaction();//internally calls con.setAutoCommit(false) to begin the tx
 	
